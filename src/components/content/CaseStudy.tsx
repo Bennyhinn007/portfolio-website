@@ -1,6 +1,7 @@
 import type { Project } from "@/content/projects";
 import { Tag } from "@/components/ui/Tag";
 import { MediaPlaceholder } from "./MediaPlaceholder";
+import { asset } from "@/lib/asset";
 
 /**
  * Renders a full project case study from typed data.
@@ -75,7 +76,7 @@ export function CaseStudy({ project }: { project: Project }) {
           {cs.media[0] ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img
-              src={cs.media[0].src}
+              src={asset(cs.media[0].src)}
               alt={cs.media[0].alt}
               className="w-full rounded border border-hairline"
               loading="lazy"
@@ -121,7 +122,7 @@ export function CaseStudy({ project }: { project: Project }) {
               <figure key={m.src}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={m.src}
+                  src={asset(m.src)}
                   alt={m.alt}
                   className="w-full rounded border border-hairline"
                   loading="lazy"

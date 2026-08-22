@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Project } from "@/content/projects";
 import { Tag } from "@/components/ui/Tag";
 import { MediaPlaceholder } from "./MediaPlaceholder";
+import { asset } from "@/lib/asset";
 
 /**
  * Large asymmetric feature block for flagship projects on the home page.
@@ -62,7 +63,7 @@ export function ProjectFeature({ project, flip = false }: { project: Project; fl
         {media ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
-            src={media.src}
+            src={asset(media.src)}
             alt={media.alt}
             className="w-full rounded border border-hairline"
             loading="lazy"

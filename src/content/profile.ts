@@ -34,7 +34,8 @@ export const profile = {
   },
 
   // Deployed origin — used for canonical URLs, sitemap, OG.
-  siteUrl: "https://bennyhinn.dev" as MaybeMissing,
+  // Default GitHub Pages project URL (includes the /portfolio-website subpath).
+  siteUrl: "https://bennyhinn007.github.io/portfolio-website" as MaybeMissing,
 } as const;
 
 export function isMissing(value: MaybeMissing): boolean {

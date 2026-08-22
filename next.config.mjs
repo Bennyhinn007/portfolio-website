@@ -1,13 +1,17 @@
 /** @type {import('next').NextConfig} */
+
+// Deploying to the default GitHub Pages project URL:
+//   https://bennyhinn007.github.io/portfolio-website/
+// Pages serves from the /portfolio-website subpath, so basePath + assetPrefix
+// are required for CSS/JS/images/links to resolve.
+const basePath = "/portfolio-website";
+
 const nextConfig = {
   reactStrictMode: true,
   // Static export for GitHub Pages (no Node server available).
   output: "export",
-  // Pages serves from a subfolder unless a custom domain is used.
-  // Using custom domain bennyhinn.dev => no basePath needed.
-  // If you switch to the default *.github.io/portfolio-website URL, set:
-  //   basePath: "/portfolio-website",
-  //   assetPrefix: "/portfolio-website/",
+  basePath,
+  assetPrefix: basePath,
   images: {
     // next/image optimization needs a server; disable it for static export.
     unoptimized: true,

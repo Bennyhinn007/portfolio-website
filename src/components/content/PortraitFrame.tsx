@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { asset } from "@/lib/asset";
 
 /**
  * Distinctive hero portrait frame.
@@ -34,7 +35,7 @@ export function PortraitFrame({
       {/* The portrait itself, on a solid plate so the offset rule reads cleanly. */}
       <div className="relative rounded border border-ink/80 bg-paper p-1.5">
         <Image
-          src={src}
+          src={asset(src)}
           alt={alt}
           width={512}
           height={640}
