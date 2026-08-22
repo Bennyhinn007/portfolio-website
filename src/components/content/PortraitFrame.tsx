@@ -34,15 +34,19 @@ export function PortraitFrame({
 
       {/* The portrait itself, on a solid plate so the offset rule reads cleanly. */}
       <div className="relative rounded border border-ink/80 bg-paper p-1.5">
-        <Image
-          src={asset(src)}
-          alt={alt}
-          width={512}
-          height={640}
-          priority
-          sizes="(max-width: 640px) 11rem, (max-width: 1024px) 14rem, 16rem"
-          className="w-full rounded-sm object-cover"
-        />
+        {/* Aspect ratio locked (4:5) so the box is reserved before paint — no layout shift. */}
+        <div className="relative aspect-[4/5] w-full overflow-hidden rounded-sm">
+          <Image
+            src={asset(src)}
+            alt={alt}
+            width={512}
+            height={640}
+            priority
+            fetchPriority="high"
+            sizes="(max-width: 640px) 11rem, (max-width: 1024px) 14rem, 16rem"
+            className="h-full w-full object-cover"
+          />
+        </div>
 
         {/* Corner registration ticks — the four crop marks. */}
         <span aria-hidden="true" className="pointer-events-none absolute left-0 top-0 h-3 w-3 border-l-2 border-t-2 border-accent" />
