@@ -1,0 +1,13 @@
+/node_modules
+/.next
+/out
+/build
+/Photo
+.env*
+!.env.example
+.DS_Store
+*.pem
+npm-debug.log*
+.vercel
+*.tsbuildinfo
+next-env.d.ts

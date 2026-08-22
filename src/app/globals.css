@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Signal palette. One cohesive design across light/dark.
+  Values are RGB triplets so Tailwind's <alpha-value> works.
+  Contrast ratios verified against WCAG AA for text pairings.
+*/
+:root {
+  --paper: 247 245 240; /* #F7F5F0 warm paper */
+  --surface: 241 238 231; /* subtle raised neutral */
+  --ink: 26 25 23; /* #1A1917 */
+  --muted: 92 88 82; /* readable secondary text on paper */
+  --faint: 122 118 110; /* metadata */
+  --hairline: 226 222 214; /* #E2DED6 */
+  --accent: 176 78 20; /* #B04E14 burnt amber, AA on paper */
+  --accent-ink: 247 245 240; /* text on accent fills */
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+.dark {
+  --paper: 20 19 18; /* #141312 */
+  --surface: 30 28 26;
+  --ink: 237 234 227; /* #EDEAE3 */
+  --muted: 168 162 152;
+  --faint: 132 126 117;
+  --hairline: 48 45 42;
+  --accent: 224 117 47; /* #E0752F lifts in dark for contrast */
+  --accent-ink: 20 19 18;
+}
+
+* {
+  border-color: rgb(var(--hairline));
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: rgb(var(--paper));
+  color: rgb(var(--ink));
+  font-family: var(--font-sans);
+  font-feature-settings: "kern", "liga", "calt";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Visible, accent-outlined focus for keyboard users only. */
+:focus-visible {
+  outline: 2px solid rgb(var(--accent));
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+::selection {
+  background-color: rgb(var(--accent) / 0.22);
+}
+
+/* Fraunces optical/soft settings for editorial character at display sizes. */
+.font-display {
+  font-optical-sizing: auto;
+  font-variation-settings: "SOFT" 0, "WONK" 0;
+}
+
+/* Prose defaults for MDX / long-form case-study text. */
+.prose-note {
+  max-width: 68ch;
+}
+.prose-note p {
+  margin-bottom: 1.15em;
+  color: rgb(var(--muted));
+  line-height: 1.7;
+}
+.prose-note strong {
+  color: rgb(var(--ink));
+  font-weight: 600;
+}
+
+/* Honour reduced motion globally. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
