@@ -9,6 +9,7 @@ import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { ProjectFeature } from "@/components/content/ProjectFeature";
 import { ProjectListItem } from "@/components/content/ProjectListItem";
+import { PortraitFrame } from "@/components/content/PortraitFrame";
 import { Tag } from "@/components/ui/Tag";
 
 export default function HomePage() {
@@ -24,7 +25,7 @@ export default function HomePage() {
       {/* Hero — identity + substance, two CTAs. No decorative illustration. */}
       <section className="border-b border-hairline">
         <Container>
-          <div className="grid gap-10 py-20 sm:py-28 lg:grid-cols-[1fr_auto] lg:items-end lg:py-30">
+          <div className="grid gap-10 py-20 sm:py-28 lg:grid-cols-[1fr_auto] lg:items-start lg:py-30">
             <div>
               <p className="font-mono text-label uppercase tracking-widest text-accent">
                 {profile.location}
@@ -64,25 +65,36 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Compact factual sidebar — real numbers only, no fake stats. */}
-            <dl className="grid grid-cols-2 gap-x-8 gap-y-5 border-t border-hairline pt-6 lg:w-64 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
-              <div>
-                <dt className="font-mono text-xs uppercase tracking-widest text-faint">Focus</dt>
-                <dd className="mt-1 text-sm text-ink">Security &amp; AI</dd>
-              </div>
-              <div>
-                <dt className="font-mono text-xs uppercase tracking-widest text-faint">Grad</dt>
-                <dd className="mt-1 text-sm text-ink">{profile.education.graduation}</dd>
-              </div>
-              <div>
-                <dt className="font-mono text-xs uppercase tracking-widest text-faint">CGPA</dt>
-                <dd className="mt-1 text-sm text-ink">{profile.education.gpa}</dd>
-              </div>
-              <div>
-                <dt className="font-mono text-xs uppercase tracking-widest text-faint">Interned</dt>
-                <dd className="mt-1 text-sm text-ink">{experience.length} security roles</dd>
-              </div>
-            </dl>
+            {/* Right column: portrait above the factual sidebar. Stacks below
+                the hero text on mobile — no overlap with nav or content. */}
+            <div className="flex flex-col gap-8 lg:w-64 lg:border-l lg:border-hairline lg:pl-8">
+              <PortraitFrame
+                src="/benny-portrait.jpg"
+                alt={`Portrait of ${profile.name}`}
+                caption={profile.name}
+                tag="Bidar, IN"
+              />
+
+              {/* Compact factual sidebar — real numbers only, no fake stats. */}
+              <dl className="grid grid-cols-2 gap-x-8 gap-y-5 border-t border-hairline pt-6">
+                <div>
+                  <dt className="font-mono text-xs uppercase tracking-widest text-faint">Focus</dt>
+                  <dd className="mt-1 text-sm text-ink">Security &amp; AI</dd>
+                </div>
+                <div>
+                  <dt className="font-mono text-xs uppercase tracking-widest text-faint">Grad</dt>
+                  <dd className="mt-1 text-sm text-ink">{profile.education.graduation}</dd>
+                </div>
+                <div>
+                  <dt className="font-mono text-xs uppercase tracking-widest text-faint">CGPA</dt>
+                  <dd className="mt-1 text-sm text-ink">{profile.education.gpa}</dd>
+                </div>
+                <div>
+                  <dt className="font-mono text-xs uppercase tracking-widest text-faint">Interned</dt>
+                  <dd className="mt-1 text-sm text-ink">{experience.length} security roles</dd>
+                </div>
+              </dl>
+            </div>
           </div>
         </Container>
       </section>
