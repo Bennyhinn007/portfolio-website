@@ -15,7 +15,7 @@ export function Nav() {
       <div className="mx-auto flex h-16 max-w-wide items-center justify-between px-5 sm:px-8 lg:px-12">
         <Link
           href="/"
-          className="font-display text-lg font-semibold tracking-tight text-ink"
+          className="font-display text-2xl font-semibold tracking-tight text-ink sm:text-3xl"
           aria-label={`${profile.preferredName} — home`}
         >
           {profile.preferredName}
