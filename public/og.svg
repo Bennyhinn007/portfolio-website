@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Bennyhinn — AI security, Blockchain, Web security">
-  <rect width="1200" height="630" fill="#F7F5F0"/>
-  <text x="72" y="96" font-family="Georgia, 'Times New Roman', serif" font-size="26" letter-spacing="4" fill="#B04E14">BIDAR, KARNATAKA, INDIA</text>
-  <text x="72" y="330" font-family="Georgia, 'Times New Roman', serif" font-size="78" font-weight="600" fill="#1A1917">I build security-focused</text>
-  <text x="72" y="416" font-family="Georgia, 'Times New Roman', serif" font-size="78" font-weight="600" fill="#1A1917">systems, then break them.</text>
-  <text x="72" y="474" font-family="Georgia, 'Times New Roman', serif" font-size="30" fill="#5C5852">Bennyhinn — AI security · Blockchain · Web security</text>
-  <text x="72" y="566" font-family="'Courier New', monospace" font-size="26" fill="#7A766E">Bennyhinn</text>
-  <text x="1128" y="566" text-anchor="end" font-family="'Courier New', monospace" font-size="26" fill="#7A766E">github.com/Bennyhinn007</text>
-  <rect x="72" y="530" width="1056" height="1" fill="#E2DED6"/>
+  <rect width="1200" height="630" fill="#E9E6DE"/>
+  <text x="72" y="96" font-family="Georgia, 'Times New Roman', serif" font-size="26" letter-spacing="4" fill="#A0440E">BIDAR, KARNATAKA, INDIA</text>
+  <text x="72" y="330" font-family="Georgia, 'Times New Roman', serif" font-size="78" font-weight="600" fill="#242321">I build security-focused</text>
+  <text x="72" y="416" font-family="Georgia, 'Times New Roman', serif" font-size="78" font-weight="600" fill="#242321">systems, then break them.</text>
+  <text x="72" y="474" font-family="Georgia, 'Times New Roman', serif" font-size="30" fill="#4F4B45">Bennyhinn — AI security · Blockchain · Web security</text>
+  <text x="72" y="566" font-family="'Courier New', monospace" font-size="26" fill="#666159">Bennyhinn</text>
+  <text x="1128" y="566" text-anchor="end" font-family="'Courier New', monospace" font-size="26" fill="#666159">github.com/Bennyhinn007</text>
+  <rect x="72" y="530" width="1056" height="1" fill="#CEC8BD"/>
 </svg>

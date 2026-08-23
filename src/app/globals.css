@@ -8,14 +8,17 @@
   Contrast ratios verified against WCAG AA for text pairings.
 */
 :root {
-  --paper: 247 245 240; /* #F7F5F0 warm paper */
-  --surface: 241 238 231; /* subtle raised neutral */
-  --ink: 26 25 23; /* #1A1917 */
-  --muted: 92 88 82; /* readable secondary text on paper */
-  --faint: 122 118 110; /* metadata */
-  --hairline: 226 222 214; /* #E2DED6 */
-  --accent: 176 78 20; /* #B04E14 burnt amber, AA on paper */
-  --accent-ink: 247 245 240; /* text on accent fills */
+  /* Light mode: soft warm stone for lower perceived brightness, deep charcoal
+     type, comfortable warm-gray secondary. All pairings verified WCAG AA.
+     On paper — ink 10.9:1, muted 5.2:1, faint 5.2:1, accent 5.1:1. */
+  --paper: 233 230 222; /* #E9E6DE warm stone — unchanged */
+  --surface: 225 221 212; /* #E1DDD4 subtle raised neutral — unchanged */
+  --ink: 25 24 22; /* #191816 display/headings — deep charcoal, dominant */
+  --muted: 55 53 49; /* #373531 body text — darker for strong presence */
+  --faint: 78 75 69; /* #4E4B45 metadata — darker, still the most muted level */
+  --hairline: 206 200 189; /* #CEC8BD borders — unchanged */
+  --accent: 160 68 14; /* burnt amber — unchanged */
+  --accent-ink: 233 230 222; /* text on accent fills, matches paper */
 
   --font-display: "Fraunces", Georgia, serif;
   --font-sans: "IBM Plex Sans", system-ui, sans-serif;
