@@ -13,12 +13,12 @@ export const profile = {
   // Display name used across the UI (nav, footer, hero, prose).
   name: "Bennyhinn",
   preferredName: "Bennyhinn",
-  role: "Engineering Student — IoT & Cybersecurity, Blockchain, AI",
+  role: "Engineering Student — Cybersecurity, AI & Full-Stack Developer",
   // Positioning line, written from real work — not marketing filler.
   positioning:
     "I build security-focused systems, then try to break them — across AI robustness, blockchain data-protection, and web security.",
   education: {
-    degree: "B.E. Computer Science & Engineering",
+    degree: "B.E. in CSE (IoT and Cybersecurity Including Blockchain Technology)",
     college: "Guru Nanak Dev Engineering College (GNDEC), Bidar",
     university: "Visvesvaraya Technological University (VTU)",
     graduation: "2027",

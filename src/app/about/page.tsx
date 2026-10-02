@@ -46,7 +46,8 @@ export default function AboutPage() {
       <Section label="Background" index="01">
         <div className="prose-note max-w-2xl text-lg">
           <p>
-            I&apos;m {profile.preferredName}, a Computer Science &amp; Engineering student at{" "}
+            I&apos;m {profile.preferredName}, a Computer Science &amp; Engineering student
+            specializing in IoT, Cybersecurity, and Blockchain Technology at{" "}
             {profile.education.college}, under {profile.education.university}, graduating in{" "}
             {profile.education.graduation}. I&apos;m based in {profile.location}.
           </p>
