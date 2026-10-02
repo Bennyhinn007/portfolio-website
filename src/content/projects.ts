@@ -157,23 +157,27 @@ export const projects: Project[] = [
   },
   {
     slug: "adversarial-ai-vs-defence",
-    title: "Adversarial AI vs Defence Simulator",
-    shortTitle: "Adversarial AI Simulator",
+    title: "RakshaNet — Adversarial AI Attack & Defence Simulator",
+    shortTitle: "RakshaNet — Adversarial AI Attack & Defence Simulator",
     tier: "flagship",
     domain: "AI Security",
     summary:
-      "A modular lab for running adversarial attacks (FGSM, PGD) against image classifiers and measuring how defence mechanisms recover robustness.",
+      "An interactive simulator for running adversarial attacks (FGSM, PGD) against image classifiers and evaluating how defence mechanisms recover robustness.",
     year: "2025",
     repo: "https://github.com/Bennyhinn007/Adversarial-AI-vs-Defence-Simulator",
     stack: [
       "Python",
       "PyTorch",
+      "Streamlit",
+      "MobileNetV2",
+      "CIFAR-10",
+      "NumPy",
       "FGSM",
       "PGD",
       "Adversarial Training",
-      "Input Denoising",
-      "Randomized Smoothing",
-      "Jupyter",
+      "Feature Squeezing",
+      "Median Filtering",
+      "JPEG Compression",
     ],
     caseStudy: {
       tagline:
@@ -210,8 +214,14 @@ export const projects: Project[] = [
         {
           heading: "Defences",
           body: [
-            "Three defence families are implemented: **input denoising** (strip perturbations before inference), **randomized smoothing** (add controlled noise and vote, giving a certified-style defence), and **adversarial training** (train directly on adversarial examples so robustness is built into the weights).",
-            "The architecture is modular — attacks and defences are drop-in modules, so new techniques can be added without touching the evaluation core.",
+            "Four defences are implemented, spanning preprocessing and training-time hardening: **Feature Squeezing** (reduce input precision/colour depth to collapse adversarial perturbations), **Median Filtering** (smooth out pixel-level noise before inference), **JPEG Compression** (lossy re-encoding that discards high-frequency adversarial signal), and **PGD Adversarial Training** (train directly on adversarial examples so robustness is built into the weights).",
+            "The attack and defence stages are modular, so new techniques can be dropped in without touching the evaluation core.",
+          ],
+        },
+        {
+          heading: "My role",
+          body: [
+            "I implemented the FGSM and PGD attacks, the Feature Squeezing, Median Filtering, and JPEG Compression defences, and PGD adversarial training. I built the Streamlit interface and integrated the complete attack/defence pipeline end to end.",
           ],
         },
         {
@@ -224,7 +234,7 @@ export const projects: Project[] = [
             lines: [
               "1  train baseline on clean data",
               "2  adversary generates examples (FGSM / PGD, tunable ε)",
-              "3  apply defence (denoise / smooth / adv-train)",
+              "3  apply defence (feature squeeze / median / JPEG / adv-train)",
               "4  score: accuracy · robustness · attack success rate",
             ],
           },
@@ -337,8 +347,95 @@ export const projects: Project[] = [
       ],
     },
   },
+  {
+    slug: "hacktober-2026-event-platform",
+    title: "HACKTOBER 2026 — National Event Management Platform",
+    shortTitle: "HACKTOBER 2026 Platform",
+    tier: "major",
+    domain: "Full-Stack",
+    context: "Official portal for GNDEC Bidar's national-level cybersecurity event",
+    summary:
+      "A full-stack event portal and hardened admin system: multi-step registration with dynamic pricing, cryptographically signed QR passes, and a role-based operations dashboard.",
+    year: "2026",
+    repo: "https://github.com/Bennyhinn007/College-Event-Management-System",
+    stack: [
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS v4",
+      "MongoDB Atlas",
+      "JWT (HS256)",
+      "bcrypt",
+      "HMAC-SHA256",
+      "Zod",
+      "Vercel",
+    ],
+    caseStudy: {
+      tagline:
+        "The official platform for HACKTOBER 2026, a national-level event under Cybersecurity Awareness Month at GNDEC Bidar — built full-stack, with the admin side hardened like a product, not a demo.",
+      blocks: [
+        {
+          heading: "Problem",
+          body: [
+            "A national-level, multi-day event needs more than a landing page: public registration across five competitions, dynamic multi-event pricing, payment verification, attendance tracking, and an administrative back office — all handling real participant data that must stay private and tamper-resistant.",
+          ],
+        },
+        {
+          heading: "Registration & QR passes",
+          body: [
+            "The public portal runs a multi-step registration wizard with a dynamic pricing engine (₹79 for one event up to ₹350 for five) and semester constraints. Each confirmed registration gets a **non-sequential ID** (`HT26-` + 6 random characters) and a printable accreditation pass.",
+            "Rather than encoding participant PII in the QR code, the pass carries an **HMAC-SHA256 signed token** (`HT26-XXXXXX-<hmac>`). A public verification route confirms authenticity, college, events, and payment status without leaking phone or email.",
+          ],
+        },
+        {
+          heading: "Hardened admin operations",
+          body: [
+            "The admin side is treated as an attack surface. It uses a **role-based hierarchy** (SUPER_ADMIN > ADMIN > VIEWER), a sliding-window **brute-force lockout** (5 failed attempts → 15-minute block, HTTP 429), **constant-time comparison** to mitigate timing attacks on login, HttpOnly session cookies, and strict security headers (`X-Frame-Options: DENY`, `nosniff`, `no-store`).",
+            "Organizers get a live analytics dashboard, a payment-verification queue with side-by-side receipt review, a camera-based QR attendance scanner with duplicate check-in detection, filter-aware CSV/Excel exports, and an immutable audit log.",
+          ],
+        },
+        {
+          heading: "Verification",
+          body: [
+            "The platform ships with a **unit and business-rules suite (50/50 passing)** covering pricing, event limits, semester constraints, rate limiting, HMAC tokens, RBAC, and the payment lifecycle, plus a **live HTTP end-to-end suite (8/8 passing)** exercising registration, QR verification, payment approval, attendance check-in, and exports.",
+          ],
+        },
+      ],
+      limitations: [
+        "Built for a specific event; some rules (pricing tiers, semester options) are domain-specific rather than general-purpose.",
+      ],
+      futureWork: [
+        "Generalize the registration engine for reuse across future department events.",
+      ],
+      media: [], // NEEDS_INPUT: HACKTOBER 2026 screenshots
+    },
+  },
 
   // --- Supporting: focused, real, internship-linked where applicable ---
+  {
+    slug: "blockchain-identity-asset-management",
+    title: "Blockchain Identity, Access Control & Asset Management",
+    shortTitle: "Blockchain Identity Platform",
+    tier: "supporting",
+    domain: "Blockchain",
+    summary:
+      "A working prototype of a blockchain-backed identity and asset workflow — register, verify, assign roles, and transfer ownership — with every operation producing a real on-chain transaction.",
+    year: "2026",
+    repo: "https://github.com/Bennyhinn007/Mock-Project-Blockchain-and-Backend-",
+    stack: ["Solidity 0.8.20", "Hardhat", "OpenZeppelin", "Python", "Flask", "Web3.py", "SQLite"],
+  },
+  {
+    slug: "ai-adaptive-firewall",
+    title: "AI-Assisted Adaptive Firewall with SIEM Analytics",
+    shortTitle: "AI Adaptive Firewall",
+    tier: "supporting",
+    domain: "SOC / Blue Team",
+    summary:
+      "A firewall prototype that analyzes real network traffic with Zeek, detects anomalies using an unsupervised Isolation Forest model, and emits SIEM-ready security events with severity scoring.",
+    year: "2026",
+    repo: "https://github.com/Bennyhinn007/ai-adaptive-firewall",
+    stack: ["Python", "Zeek", "scikit-learn", "Isolation Forest", "FastAPI", "Elastic Stack", "PostgreSQL", "Docker"],
+  },
   {
     slug: "vulnerability-scanner",
     title: "Vulnerability Scanner",
