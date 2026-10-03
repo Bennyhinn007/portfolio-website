@@ -33,6 +33,9 @@ export default function HomePage() {
               <h1 className="mt-5 max-w-4xl font-display text-display-lg font-semibold text-ink">
                 I build security-focused systems,
                 <br className="hidden sm:block" /> then try to break them.
+                <span className="mt-4 block text-title text-muted">
+                  And I&apos;m a <span className="text-accent">full-stack developer</span> by passion.
+                </span>
               </h1>
               <p className="mt-7 max-w-2xl text-lg leading-relaxed text-muted sm:text-xl">
                 {profile.preferredName} — engineering student at GNDEC Bidar (VTU).
